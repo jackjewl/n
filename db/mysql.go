@@ -9,7 +9,7 @@ import (
 	"gorm.io/gorm"
 )
 
-var DB gorm.DB
+var DB *gorm.DB
 
 func InitDb() {
 
@@ -35,5 +35,6 @@ func InitDb() {
 	//test
 	fmt.Println("db")
 	fmt.Println(*db)
-	DB = *db
+
+	DB = db
 }
