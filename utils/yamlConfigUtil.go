@@ -2,9 +2,10 @@ package utils
 
 import (
 	"fmt"
-	"gopkg.in/yaml.v2"
 	"io/ioutil"
 	"os"
+
+	"gopkg.in/yaml.v2"
 )
 
 // YamlConfig 配置文件对应结构体
@@ -22,10 +23,12 @@ func ReadConfig(fileName string) *YamlConfig {
 	f, err := os.OpenFile(fileName, os.O_RDONLY, 0600)
 	defer f.Close()
 	if err != nil {
-		fmt.Println(err.Error())
+		fmt.Println("配置文件打开失败" + err.Error())
 	} else {
 		contentByte, err := ioutil.ReadAll(f)
-		if err == nil {
+		if err != nil {
+			fmt.Println("配置文件读取失败")
+			fmt.Println(err)
 			return nil
 		}
 
@@ -33,7 +36,7 @@ func ReadConfig(fileName string) *YamlConfig {
 
 		err = yaml.Unmarshal([]byte(contentByte), &yamlConfig)
 		if err != nil {
-			fmt.Println(err)
+			fmt.Println("解析yaml配置文件失败" + err.Error())
 		}
 
 		return &yamlConfig
