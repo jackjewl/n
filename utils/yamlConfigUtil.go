@@ -14,7 +14,7 @@ type YamlConfig struct {
 		Password string `yaml:"password"`
 		Url      string `yaml:"url"`
 		Dbname   string `yaml:"dbname"`
-	}
+	} `yaml:"mysql"`
 }
 
 // ReadConfig 去读取配置文件
