@@ -1,5 +1,5 @@
 mysql:
-  username: "root"
-  password: "12345"
-  url: ""
-  dbname: ""
+  username: "windowsuser"
+  password: "Zhj_589632147"
+  url: "rm-bp1t32g0y03m4i22s8o.mysql.rds.aliyuncs.com"
+  dbname: "squirrelBlog"
