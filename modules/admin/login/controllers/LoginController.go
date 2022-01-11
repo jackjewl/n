@@ -43,6 +43,9 @@ func (this *LoginController) Login(c *gin.Context) {
 		//设置token
 		c.Request.Response.Header.Add("token", token)
 
+		//TODO
+		//这里还需要将token存在redis中，token的过期时间在redis中设置，方便后期做负载均衡等
+
 		c.Status(http.StatusHTTPVersionNotSupported)
 		c.Abort()
 		return
